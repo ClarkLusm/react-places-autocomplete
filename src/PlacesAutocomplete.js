@@ -153,8 +153,8 @@ class PlacesAutocomplete extends React.Component {
 
   handleEnterKey = () => {
     const activeSuggestion = this.getActiveSuggestion();
-    if (activeSuggestion === undefined) {
-      this.handleSelect(this.props.value, null);
+    if (this.props.disabledEnterKey || activeSuggestion === undefined) {
+      return;
     } else {
       this.handleSelect(activeSuggestion.description, activeSuggestion.placeId);
     }
